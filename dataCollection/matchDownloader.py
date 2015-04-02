@@ -45,38 +45,48 @@ def getNextTimeSliceToDownload():
     time.sleep(3600)
   return possibleSlice
 
-def getGameIDList():
-  beginDate = getNextTimeSliceToDownload()
+def getGameIDsForTimeSlice(beginDate):
   gameIDsURL = 'https://na.api.pvp.net/api/lol/na/v4.1/game/ids?api_key=%s&beginDate=%d' % (apiKey, beginDate)
   results = requests.get(gameIDsURL)
   data = json.loads(results.text)
-  return [data,beginDate]
+  if (results.status_code == 200):
+    return data
+  else:
+    print 'Failure to retrieve game ID list with status code: %d' % (results.status_code)
+    print results.text
+    sys.exit(-1)
 
 def getMatch(matchid):
   url = 'https://na.api.pvp.net/api/lol/na/v2.2/match/%d?api_key=%s' % (matchid, apiKey)
   results = requests.get(url)
   data = json.loads(results.text)
-  return data
+  if results.status_code == 200:
+      return data
+  else:
+    print 'Failure to download match details with status code: %d' % (results.status_code)
+    print results.text
+    sys.exit(-1)
 
     
 def main():
   while True:
-    [matchids,beginDate] = getGameIDList()
+    beginDate = getNextTimeSliceToDownload()
+    matchids = getGameIDsForTimeSlice(beginDate)
+
     print 'Downloading %d matches from time slice %d (%s)' % (len(matchids), 
                                                               beginDate, 
                                                               datetime.utcfromtimestamp(beginDate))
-    with open("slicesDownloaded.txt", "a+") as epfile:
-      epfile.write(str(beginDate))
-      epfile.write('\n')
+    # Record that we've downloaded this slice.
+    with open("slicesDownloaded.txt", "a+") as slicesFile:
+      slicesFile.write(str(beginDate))
+      slicesFile.write('\n')
+
     for matchid in matchids:
-      filename=str(matchid)
-      with open(filename,"w") as matchfile:
+      filename = str(matchid)
+      with open(filename, "w") as matchfile:
         print 'Downloading match %d' % (matchid,)
         matchfile.write(str(getMatch(matchid)))
       time.sleep(1.2)
-#print(matchids)
-  #pprint.pprint(getMatch(matchids[0]))
-
 
 if __name__ == '__main__':
   main()
