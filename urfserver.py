@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import json
+
 from flask import Flask
 app = Flask(__name__, static_folder='static') 
 
@@ -13,7 +15,10 @@ def urfJS():
 
 @app.route('/questions')
 def questions():
-  return 'These are the questions'
+    questions = [
+            { 'champ0': 'Annie', 'champ1': "Khz'Zix", 'correct': 'Annie', 'question': 'Who has the higher winrate in URF?'}
+    ]
+    return json.dumps(questions)
 
 if __name__ == '__main__':
   app.run()
