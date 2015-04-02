@@ -7,6 +7,7 @@ import yaml
 import sys
 import requests
 import json
+import pprint
 from datetime import datetime, timedelta
 
 keys = yaml.load(open('keys.yaml'))
@@ -29,11 +30,18 @@ def getGameIDList():
   gameIDsURL = 'https://na.api.pvp.net/api/lol/na/v4.1/game/ids?api_key=%s&beginDate=%d' % (apiKey, beginDate)
   results = requests.get(gameIDsURL)
   data = json.loads(results.text)
-  print data
+  return data
+
+def getMatch(matchid):
+  url = 'https://na.api.pvp.net/api/lol/na/v2.2/match/%d?api_key=%s' % (matchid, apiKey)
+  results = requests.get(url)
+  data = json.loads(results.text)
+  return data
+
     
 def main():
-  getGameIDList()
-
+  matchids = getGameIDList()
+  #pprint.pprint(getMatch(matchids[0]))
 
 
 if __name__ == '__main__':
