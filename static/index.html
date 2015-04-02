@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 
 <title>URF Quiz</title>
-<meta name="description" content="A quiz about URF">
+<meta name="description" content="The Ultra Rapid Fire Quiz">
 <meta name="author" content="Rachel Ruskin and Adam Lerner">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
@@ -14,7 +14,34 @@
 </head>
 
 <body>
-Hi I'm static.
+<div id="challengeText">
+  Who is the strongest in URF? Do you know? Do you know... in under 10 seconds?
+</div>
+
+<div id="buttondiv">
+  <button id="begin">Begin</button>
+</div>
+
+<div id="timer">
+  00:10
+</div>
+
+<div id="questionWrapper"> 
+  <div id="questionText"></div>
+  <a href="#">
+    <div id="champ0">
+      <div id="champ0Image"></div>
+      <div id="champ0Name"></div>
+    </div>
+  </a>
+  <a href="#">
+    <div id="champ1">
+      <div id="champ1Image"></div>
+      <div id="champ1Name"></div>
+    </div>
+  </a>
+  <div id="questionCounter">0/10</div>
+</div>
 
 <script src="urf.js"></script>
 </body>
