@@ -1,11 +1,15 @@
 #!/usr/bin/python
 
 from flask import Flask
-app = Flask(__name__, static_folder='static', static_url_path='/')
+app = Flask(__name__, static_folder='static') 
 
 @app.route('/')
 def mainPage():
     return app.send_static_file('index.html')
+
+@app.route('/urf.js')
+def urfJS():
+    return app.send_static_file('urf.js')
 
 @app.route('/questions')
 def questions():
