@@ -19,7 +19,7 @@ if (apiKey == None):
   sys.exit(-1)
 
 def getRoundedEpochSecsEightHoursAgo():
-  eightHoursAgo = datetime.now() + timedelta(hours=-8)
+  eightHoursAgo = datetime.utcnow() + timedelta(hours=-8)
   roundedOff = eightHoursAgo - timedelta(minutes=eightHoursAgo.minute % 5,
                                          seconds=eightHoursAgo.second,
                                          microseconds=eightHoursAgo.microsecond)
@@ -40,7 +40,7 @@ def getNextTimeSliceToDownload():
 
   while str(possibleSlice) in downloadedSlices:
     possibleSlice = possibleSlice + 300
-  if datetime.utcfromtimestamp(possibleSlice) > datetime.now():
+  if datetime.utcfromtimestamp(possibleSlice) > datetime.utcnow():
     print 'We have retrieved all games up to the present. Sleeping for an hour.'
     time.sleep(3600)
   return possibleSlice
