@@ -1,2 +1,5 @@
 *.yaml
 *.swp
+dataCollection/[0-9]*
+dataCollection/downloader.log
+dataCollection/slicesDownloaded.txt
