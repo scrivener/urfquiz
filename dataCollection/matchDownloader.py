@@ -9,6 +9,7 @@ import requests
 import json
 import pprint
 import time
+from retrying import retry
 from datetime import datetime, timedelta
 
 keys = yaml.load(open('../keys.yaml'))
@@ -37,14 +38,14 @@ def getNextTimeSliceToDownload():
   except IOError as e:
       downloadedSlices = []
 
-  print downloadedSlices
-
   while str(possibleSlice) in downloadedSlices:
     possibleSlice = possibleSlice + 300
   if datetime.utcfromtimestamp(possibleSlice) > datetime.now():
+    print 'We have retrieved all games up to the present. Sleeping for an hour.'
     time.sleep(3600)
   return possibleSlice
 
+@retry(wait_exponential_multiplier=1500, wait_exponential_max=15000)
 def getGameIDsForTimeSlice(beginDate):
   gameIDsURL = 'https://na.api.pvp.net/api/lol/na/v4.1/game/ids?api_key=%s&beginDate=%d' % (apiKey, beginDate)
   results = requests.get(gameIDsURL)
@@ -54,8 +55,9 @@ def getGameIDsForTimeSlice(beginDate):
   else:
     print 'Failure to retrieve game ID list with status code: %d' % (results.status_code)
     print results.text
-    sys.exit(-1)
+    raise IOError('(retrying) Failure to retrieve game ID list with status code: %d' % (results.status_code))
 
+@retry(wait_exponential_multiplier=1500, wait_exponential_max=15000)
 def getMatch(matchid):
   url = 'https://na.api.pvp.net/api/lol/na/v2.2/match/%d?api_key=%s' % (matchid, apiKey)
   results = requests.get(url)
@@ -65,7 +67,7 @@ def getMatch(matchid):
   else:
     print 'Failure to download match details with status code: %d' % (results.status_code)
     print results.text
-    sys.exit(-1)
+    raise IOError('(retrying) Failed to download match details with status code: %d' % (results.status_code))
 
     
 def main():
@@ -86,7 +88,8 @@ def main():
       with open(filename, "w") as matchfile:
         print 'Downloading match %d' % (matchid,)
         matchfile.write(str(getMatch(matchid)))
-      time.sleep(1.2)
+
+      time.sleep(1.5)
 
 if __name__ == '__main__':
   main()
