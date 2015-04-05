@@ -24,7 +24,7 @@ def mainPage():
 def urfJS():
     return app.send_static_file('urf.js')
 
-@app.route('/questions.json')
+@app.route('/questions')
 def questions():
     questions = [generateQuestion() for x in range(10)]
     resp = Response(response=json.dumps(questions),
