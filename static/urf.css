@@ -1,0 +1,72 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+#begin {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#timer{ 
+  font-size: 28px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#instantFeedback{
+  font-size: 36px;
+}
+
+#header {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  line-height: 30px;
+  background-color: orangered;
+}
+
+#titleText {
+  margin-left: 5px;
+}
+
+#champ0, #champ1 {
+  display: inline-block;
+  text-align: center;
+}
+
+#questionWrapper { 
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+}
+
+#scoreWrapper, #questionCounter {
+  padding-right: 20px;
+  text-align: right;
+}
+
+#footer {
+  margin-top: 100px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 10pt;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+
+#footer p {
+  margin: 0;
+  margin-left: 70%;
+  width: 30%;
+  
+}
+
+#challengeText {
+  margin: 10px;
+}

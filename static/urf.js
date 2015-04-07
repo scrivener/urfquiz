@@ -22,13 +22,14 @@ $(document).ready(function() {
 });
 
 var endQuiz = function() {
-
+    $('#champ0').unbind("click");
+    $('#champ1').unbind("click");
 };
 
 var startTimer = function() {
   var timerID = setInterval(function() {
     time -= tickms;
-    $("#timer").text('00:' + time/1000);
+    $("#timer").text('00:0' + (time/1000).toFixed(2));
     if (time <= 0) {
       clearInterval(timerID);
       $("#timer").text('00:00.00');
@@ -41,10 +42,6 @@ var displayNextQuestion = function() {
   displayQuestion(questions[questionCount]);
   questionCount++;
   $('#questionCounter').text('Question ' + questionCount); // Display 1-index to user.
-
-  if (questionCount >= 10) {
-    // Done.
-  }
 };
 
 var addScore = function(points) {
@@ -60,7 +57,7 @@ var answered = function(right) {
     $("#instantFeedback").text(killStreakStrings[killStreak]);
   } else {
     killStreak = 0;
-    addScore(-5);
+    addScore(-10);
     $("#instantFeedback").text("WRONG");
   } 
   displayNextQuestion();
