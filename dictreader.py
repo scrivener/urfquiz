@@ -3,7 +3,7 @@ import pandas as pd
 import ast
 import os
 import pickle
-
+#read json and write out a dataframe
 filelist=os.listdir("games/")
 all_dictionaries=[]
 for datafile in filelist:
