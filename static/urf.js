@@ -4,6 +4,9 @@ var rightCount = 0;
 var score = 0;
 var time = 10000;
 var tickms = 10;
+var killStreak = 0;
+var killStreakStrings = ['INDEXING', 'CORRECT', 'DOUBLE KILL', 
+                         'TRIPLE KILL', 'QUADRA KILL', 'PENTAKILL'];
 
 $(document).ready(function() {
   $.getJSON("/questions", function(data, textStatus, jqXHR) {
@@ -53,8 +56,12 @@ var answered = function(right) {
   if (right) {
     rightCount++;
     addScore(10);
+    killStreak++;
+    $("#instantFeedback").text(killStreakStrings[killStreak]);
   } else {
+    killStreak = 0;
     addScore(-5);
+    $("#instantFeedback").text("WRONG");
   } 
   displayNextQuestion();
 };

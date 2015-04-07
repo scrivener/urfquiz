@@ -24,6 +24,10 @@ def mainPage():
 def urfJS():
     return app.send_static_file('urf.js')
 
+@app.route('/urf.css')
+def urfCSS():
+    return app.send_static_file('urf.css')
+
 @app.route('/questions')
 def questions():
     questions = [generateQuestion() for x in range(50)]
