@@ -4,10 +4,10 @@ import ast
 import os
 import pickle
 #read json and write out a dataframe
-filelist=os.listdir("games/")
+filelist=os.listdir("dataCollection/")
 all_dictionaries=[]
 for datafile in filelist:
-    urfdatapath="games/"+datafile
+    urfdatapath="dataCollection/"+datafile
     with open(urfdatapath,"rb") as f:
         rf=f.read()
     dictf=ast.literal_eval(rf)

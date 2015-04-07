@@ -26,7 +26,7 @@ def urfJS():
 
 @app.route('/questions')
 def questions():
-    questions = [generateQuestion() for x in range(10)]
+    questions = [generateQuestion() for x in range(50)]
     resp = Response(response=json.dumps(questions),
                     status=200,
                     mimetype="application/json")
