@@ -103,12 +103,12 @@ var displayQuestion = function(q) {
 
     $('#questionText').text(q.question);
 
-    $('#champ0Image').html($('<img src="'+c0Image+'" />'));
+    $('#champ0Image').html($('<img alt="'+q.champ0+'" src="'+c0Image+'" />'));
     $('#champ0Name').text(q.champ0);
     $('#champ0').unbind("click").click(function(e) {
       answered(q.correct === 0);
     });
-    $('#champ1Image').html($('<img src="'+c1Image+'" />'));
+    $('#champ1Image').html($('<img alt="'+q.champ1+'" src="'+c1Image+'" />'));
     $('#champ1Name').text(q.champ1);
     $('#champ1').unbind("click").click(function(e) {
       answered(q.correct === 1);
