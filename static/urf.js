@@ -6,13 +6,13 @@ var time = 10000;
 var tickms = 10;
 var killStreak = 0;
 var killStreakStrings = ['INDEXING', 'CORRECT', 'DOUBLE KILL', 
-                         'TRIPLE KILL', 'QUADRA KILL', 'PENTAKILL'];
+                         'TRIPLE KILL', 'QUADRA KILL', 'PENTAKILL',
+                         'HEXAKILL', 'SEPTAKILL', 'OCTAKILL',
+                         'NINE KILLS', 'TOO MANY KILLS', 'BUY A SOULSTEALER ALREADY'];
 
 $(document).ready(function() {
   $.getJSON("/questions", function(data, textStatus, jqXHR) {
     questions = data;
-    console.log('hello');
-    console.log($('#begin'));
     $('#begin').click(function(event) {
       console.log('click');
       startTimer();
