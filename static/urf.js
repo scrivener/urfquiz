@@ -11,7 +11,10 @@ var killStreakStrings = ['INDEXING', 'CORRECT', 'DOUBLE KILL',
 $(document).ready(function() {
   $.getJSON("/questions", function(data, textStatus, jqXHR) {
     questions = data;
+    console.log('hello');
+    console.log($('#begin'));
     $('#begin').click(function(event) {
+      console.log('click');
       startTimer();
       // Start timer.
       displayNextQuestion();
@@ -82,6 +85,8 @@ var displayQuestion = function(q) {
     var c1Image = "http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/" + q.champ1 + ".png";
     c0Image = convertChampNamesToPngName(c0Image);
     c1Image = convertChampNamesToPngName(c1Image);
+
+    $('#questionText').text(q.question);
 
     $('#champ0Image').html($('<img src="'+c0Image+'" />'));
     $('#champ0Name').text(q.champ0);

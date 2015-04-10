@@ -20,13 +20,10 @@ with open('tempdata.csv', 'r') as statsFile:
 def mainPage():
     return app.send_static_file('index.html')
 
-@app.route('/urf.js')
-def urfJS():
-    return app.send_static_file('urf.js')
+@app.route('/<path>')
+def urfStatic(path):
+    return app.send_static_file(path)
 
-@app.route('/urf.css')
-def urfCSS():
-    return app.send_static_file('urf.css')
 
 @app.route('/questions')
 def questions():

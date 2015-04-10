@@ -34,39 +34,29 @@ html, body {
 }
 
 #champ0, #champ1 {
-  display: inline-block;
+  display: block;
   text-align: center;
-}
-
-#questionWrapper { 
   margin-left: auto;
   margin-right: auto;
-  height: 200px;
 }
 
-#scoreWrapper, #questionCounter {
+#questionCounter {
   padding-right: 20px;
   text-align: right;
 }
 
-#footer {
-  margin-top: 100px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  text-align: right;
+#questionDisplayArea {
+  height: 200px;
+}
+
+.footer {
   font-size: 10pt;
-  bottom: 0;
-  right: 0;
-  position: fixed;
 }
 
-#footer p {
-  margin: 0;
-  margin-left: 70%;
-  width: 30%;
-  
-}
-
-#challengeText {
-  margin: 10px;
+#questionText {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24pt;
 }
