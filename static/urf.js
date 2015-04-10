@@ -9,16 +9,27 @@ var killStreakStrings = ['INDEXING', 'CORRECT', 'DOUBLE KILL',
                          'TRIPLE KILL', 'QUADRA KILL', 'PENTAKILL',
                          'HEXAKILL', 'SEPTAKILL', 'OCTAKILL',
                          'NINE KILLS', 'TOO MANY KILLS', 'BUY A SOULSTEALER ALREADY'];
+var preloadedImages = [];
 
 $(document).ready(function() {
   $.getJSON("/questions", function(data, textStatus, jqXHR) {
     questions = data;
+
+    // Preload all the image thumbnails for seamless quizzing.
+    $.each(questions, function(index, q) {
+      var c0img = new Image();
+      var c1img = new Image();
+      c0img.src = convertChampNameToPngName(q.champ0);
+      c1img.src = convertChampNameToPngName(q.champ1);
+      preloadedImages.push(c0img);
+      preloadedImages.push(c1img);
+    });
+
+    // Set-up quiz start button.
     $('#begin').click(function(event) {
-      console.log('click');
       startTimer();
-      // Start timer.
       displayNextQuestion();
-      // Display first question.
+      
       // Lock button or change it to "stop".
     });
   });
@@ -66,7 +77,7 @@ var answered = function(right) {
   displayNextQuestion();
 };
 
-var convertChampNamesToPngName = function(name) {
+var convertChampNameToPngName = function(name) {
     name = name.replace("Kha'Zix", "Khazix");
     name = name.replace("Wukong", "MonkeyKing");
     name = name.replace("Vel'Koz", "Velkoz");
@@ -77,14 +88,12 @@ var convertChampNamesToPngName = function(name) {
     name = name.replace("Cho'Gath", "Chogath");
     name = name.replace("LeBlanc", "Leblanc");
     name = name.replace(" ", "");
-    return name;
+    return "http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/" + name + ".png";
 };
 
 var displayQuestion = function(q) {
-    var c0Image = "http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/" + q.champ0 + ".png";
-    var c1Image = "http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/" + q.champ1 + ".png";
-    c0Image = convertChampNamesToPngName(c0Image);
-    c1Image = convertChampNamesToPngName(c1Image);
+    var c0Image = convertChampNameToPngName(q.champ0);
+    var c1Image = convertChampNameToPngName(q.champ1);
 
     $('#questionText').text(q.question);
 
