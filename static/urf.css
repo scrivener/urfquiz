@@ -16,6 +16,8 @@ html, body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 #instantFeedback{
   font-size: 36px;
@@ -43,6 +45,16 @@ html, body {
 #questionCounter {
   padding-right: 20px;
   text-align: right;
+  font-size: 14pt;
+}
+
+#scoreWrapper {
+  font-size: 14pt;
+}
+
+#questionDisplayArea img {
+  width: 140px;
+  height: 140px;
 }
 
 #questionDisplayArea {
@@ -51,6 +63,10 @@ html, body {
 
 .footer {
   font-size: 10pt;
+}
+
+#disclaimerText {
+  margin-bottom: 20px;
 }
 
 #questionText {

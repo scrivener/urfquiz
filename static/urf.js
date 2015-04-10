@@ -5,13 +5,17 @@ var score = 0;
 var time = 10000;
 var tickms = 10;
 var killStreak = 0;
-var killStreakStrings = ['INDEXING', 'CORRECT', 'DOUBLE KILL', 
+var killStreakStrings = ['__INDEXING__', 'CORRECT', 'DOUBLE KILL', 
                          'TRIPLE KILL', 'QUADRA KILL', 'PENTAKILL',
                          'HEXAKILL', 'SEPTAKILL', 'OCTAKILL',
                          'NINE KILLS', 'TOO MANY KILLS', 'BUY A SOULSTEALER ALREADY'];
 var preloadedImages = [];
 
 $(document).ready(function() {
+  // Firefox is weird and keeps button state between reloads of the page.
+  // This will make our buttons enabled after reload if they were disabled.
+  $('.btn').prop("disabled", false);
+
   $.getJSON("/questions", function(data, textStatus, jqXHR) {
     questions = data;
 
@@ -29,12 +33,14 @@ $(document).ready(function() {
     $('#begin').click(function(event) {
       startTimer();
       displayNextQuestion();
-      
-      // Lock button or change it to "stop".
+      lockBeginButton();
     });
   });
 });
 
+var lockBeginButton = function() {
+  $('#begin').prop("disabled", true);
+}
 var endQuiz = function() {
     $('#champ0').unbind("click");
     $('#champ1').unbind("click");
