@@ -10,11 +10,12 @@ app = Flask(__name__, static_folder='static')
 
 winrates = {}
 popularities = {}
-with open('tempdata.csv', 'r') as statsFile:
+games = {}
+with open('winratebychamp.csv', 'r') as statsFile:
     r = csv.DictReader(statsFile)
     for line in r:
-        winrates[line['Champion']] = line['Win Rate']
-        popularities[line['Champion']] = line['Popularity']
+        winrates[line['champion']] = line['winrate']
+        games[line['champion']] = line['games']
 
 @app.route('/')
 def mainPage():
