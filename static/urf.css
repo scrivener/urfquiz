@@ -83,3 +83,7 @@ html, body {
   margin-right: auto;
   font-size: 24pt;
 }
+
+.jumbotron {
+  margin-top: 60px;
+}
