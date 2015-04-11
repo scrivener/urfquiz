@@ -48,7 +48,24 @@
 
 </div> <!-- /container -->
 
-<div class="container">
+<div id="resultsContainer" class="container hidden">
+  <div id="results" class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Ultra Rapid Results</h3>
+        </div>
+        <div class="panel-body">
+          This is where your results will be displayed.
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+</div>
+
+<div id="questionContainer" class="container">
   <div class="row">
     <div id="questionText">
       &nbsp;
@@ -84,9 +101,17 @@
     </div>
     <div class="col-md-2"></div>
   </div>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <div id="questionCounter">Question 1</div>
+    </div>
+  </div>
+</div>
 
 
-
+<div id="buttonsContainer" class="container">
   <div class="row">
     <button class="btn btn-lg btn-primary" id="begin">Begin</button>
   </div>
@@ -96,17 +121,10 @@
     <button class="btn btn-lg btn-warning btn-speed" id="rapid">Rapid</button>
     <button class="btn btn-lg btn-danger active btn-speed" id="ultra-rapid">Ultra-Rapid</button>
   </div>
+</div>
 
 
-  <div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-9">
-      <div id="questionCounter">Question 1</div>
-    </div>
-  </div>
-
-
+<div id="footerContainer" class="container">
   <div id="about" class="page-header">
     <h1>About</h1>
   </div>
@@ -128,9 +146,7 @@
   <div id="disclaimerText" class="row footer">
     The Ultra Rapid Fire Analyst Desk isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
   </div>
-
-</div> <!-- Container -->
-
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

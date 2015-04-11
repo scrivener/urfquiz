@@ -54,12 +54,8 @@ html, body {
   text-align: center;
 }
 
-#questionDisplayArea img {
-  width: 140px;
-  height: 140px;
-}
 
-#questionDisplayArea {
+#questionContainer, #resultsContainer {
   height: 225px;
 }
 

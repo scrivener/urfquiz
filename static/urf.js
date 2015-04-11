@@ -58,6 +58,8 @@ var disableButtons = function() {
 var endQuiz = function() {
     $('#champ0').unbind("click");
     $('#champ1').unbind("click");
+    $('#questionContainer').addClass('hidden');
+    $('#resultsContainer').removeClass('hidden');
 };
 
 var updateTimerDisplay = function() { 
