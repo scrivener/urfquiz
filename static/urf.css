@@ -16,11 +16,12 @@ html, body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 #instantFeedback{
   font-size: 36px;
+  text-align: center;
 }
 
 #header {
@@ -50,6 +51,7 @@ html, body {
 
 #scoreWrapper {
   font-size: 14pt;
+  text-align: center;
 }
 
 #questionDisplayArea img {
@@ -58,11 +60,16 @@ html, body {
 }
 
 #questionDisplayArea {
-  height: 200px;
+  height: 250px;
 }
 
 .footer {
   font-size: 10pt;
+}
+
+#speedButtons {
+  margin-top: 20px;
+  text-align:center;
 }
 
 #disclaimerText {

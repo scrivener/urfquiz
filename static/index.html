@@ -69,6 +69,10 @@
       <div id="timer">
         00:10.00
       </div>
+      <div id="scoreWrapper">
+        Score: <span id="score"> 0 </span>
+      </div>
+      <div id="instantFeedback"></div>
     </div>
     <div class="col-md-3">
       <div id="champ1">
@@ -87,13 +91,15 @@
     <button class="btn btn-lg btn-primary" id="begin">Begin</button>
   </div>
 
+  <div id="speedButtons" class="row">
+    <button class="btn btn-lg btn-info btn-speed" id="ultra">Ultra</button>
+    <button class="btn btn-lg btn-warning btn-speed" id="rapid">Rapid</button>
+    <button class="btn btn-lg btn-danger active btn-speed" id="ultra-rapid">Ultra-Rapid</button>
+  </div>
+
 
   <div class="row">
     <div class="col-md-3">
-      <div id="scoreWrapper">
-        Score: <span id="score"> 0 </span>
-      </div>
-      <div id="instantFeedback"></div>
     </div>
     <div class="col-md-9">
       <div id="questionCounter">Question 1</div>

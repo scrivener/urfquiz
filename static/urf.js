@@ -33,26 +33,50 @@ $(document).ready(function() {
     $('#begin').click(function(event) {
       startTimer();
       displayNextQuestion();
-      lockBeginButton();
+      disableButtons();
     });
+
+    $('.btn-speed').click(function(event) {
+      $('.btn-speed').removeClass('active');
+      $(event.target).addClass('active');
+      if ($(event.target).prop('id') === 'ultra') {
+        time = 30000;
+      } else if ($(event.target).prop('id') === 'rapid') {
+        time = 20000;
+      } else if ($(event.target).prop('id') === 'ultra-rapid') {
+        time = 10000;
+      }
+      updateTimerDisplay();
+    });
+
   });
 });
 
-var lockBeginButton = function() {
-  $('#begin').prop("disabled", true);
+var disableButtons = function() {
+  $('.btn').prop("disabled", true);
 }
 var endQuiz = function() {
     $('#champ0').unbind("click");
     $('#champ1').unbind("click");
 };
 
+var updateTimerDisplay = function() { 
+  if (time < 10000) {
+    $("#timer").text('00:0' + (time/1000).toFixed(2));
+  } else {
+    $("#timer").text('00:' + (time/1000).toFixed(2));
+  }
+  if (time <= 0) {
+    $("#timer").text('00:00.00');
+  }
+}
+
 var startTimer = function() {
   var timerID = setInterval(function() {
     time -= tickms;
-    $("#timer").text('00:0' + (time/1000).toFixed(2));
+    updateTimerDisplay();
     if (time <= 0) {
       clearInterval(timerID);
-      $("#timer").text('00:00.00');
       endQuiz();
     }
   }, tickms);
