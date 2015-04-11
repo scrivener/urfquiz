@@ -7,6 +7,7 @@ import random
 
 from flask import Flask, Response
 app = Flask(__name__, static_folder='static') 
+app.debug = True
 
 winrates = {}
 popularities = {}
@@ -53,5 +54,4 @@ def generateQuestion():
            }
 
 if __name__ == '__main__':
-  app.debug = True
   app.run()
