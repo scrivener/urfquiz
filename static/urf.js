@@ -16,31 +16,36 @@ var pointsPerQuestion = {
   'rapid': 20,
   'ultra-rapid': 30
 }
+var timePerMode = {
+  'ultra': 30000,
+  'rapid': 20000,
+  'ultra-rapid': 10000
+}
 
 $(document).ready(function() {
   // Firefox is weird and keeps button state between reloads of the page.
   // This will make our buttons enabled after reload if they were disabled.
   $('.btn').prop("disabled", false);
+  $('#begin').prop("disabled", true);
 
   loadQuestionsFromBackend();
+
+  // Set-up quiz start button.
+  $('#begin').unbind('click').click(startQuiz);
 
   $('.btn-speed').click(function(event) {
     $('.btn-speed').removeClass('active');
     $(event.target).addClass('active');
     mode = $(event.target).prop('id');
     setTimeToSelectedMode();
-    updateTimerDisplay();
   });
+
+  setTimeToSelectedMode();
 });
 
 var setTimeToSelectedMode = function() {
-  if (mode === 'ultra') {
-    time = 30000;
-  } else if (mode === 'rapid') {
-    time = 20000;
-  } else if (mode === 'ultra-rapid') {
-    time = 10000;
-  }
+  time = timePerMode[mode];
+  updateTimerDisplay();
 }
 
 var loadQuestionsFromBackend = function() {
@@ -56,25 +61,39 @@ var loadQuestionsFromBackend = function() {
       preloadedImages.push(c0img);
       preloadedImages.push(c1img);
     });
+    
+    // Don't let the button be pushed until we have questions.
+    $('#begin').prop("disabled", false);
 
-    // Set-up quiz start button.
-    // We do this upon completing load of questions from the backend
-    // because we want to avoid trying to start the quiz before 
-    // questions are loaded.
-    $('#begin').unbind('click').click(startQuiz);
   });
 }
 
-var startQuiz = function() {
-  score = 0;
+var resetQuiz = function() {
+  // These setters also render to the page.
+  setScore(0);
+  setQuestionCount(0);
+
   rightCount = 0;
-  questionCount = 0; 
   killStreak = 0;
   setTimeToSelectedMode();  
-  updateTimerDisplay();
-  startTimer();
+
   $('#questionContainer').removeClass('hidden');
   $('#resultsContainer').addClass('hidden');
+
+  $('#champ0Image').empty();
+  $('#champ1Image').empty();
+  $('#champ0Name').empty();
+  $('#champ1Name').empty();
+  $("#instantFeedback").empty();
+  $("#score").text(score);
+  $("#questionText").empty();
+  
+  $('#begin').text('Begin');
+  $('#begin').unbind('click').click(startQuiz);
+}
+var startQuiz = function() {
+  setTimeToSelectedMode();  
+  startTimer();
   displayNextQuestion();
   $('.btn').prop("disabled", true);
 }
@@ -94,13 +113,12 @@ var endQuiz = function() {
   // New set of questions each time.
   loadQuestionsFromBackend();
 
-  readyToRestart()
-};
+  $('#begin').unbind('click').click(resetQuiz);
 
-var readyToRestart = function() {
   $('#begin').text('Play Again');
   $('.btn').prop("disabled", false);
-}
+};
+
 var updateTimerDisplay = function() { 
   if (time < 10000) {
     $("#timer").text('00:0' + (time/1000).toFixed(2));
@@ -125,14 +143,23 @@ var startTimer = function() {
 
 var displayNextQuestion = function() {
   displayQuestion(questions[questionCount]);
-  questionCount++;
-  $('#questionCounter').text('Question ' + questionCount); // Display 1-index to user.
+  setQuestionCount(questionCount + 1);
 };
 
+var setQuestionCount = function(count) {
+  questionCount = count;
+  $('#questionCounter').text('Question ' + questionCount); // Display 1-index to user.
+  
+}
+
 var addScore = function(points) {
-  score += points;
-  $("#score").text(score);
+  setScore(score + points);
 };
+
+var setScore = function(points) {
+  score = points;
+  $("#score").text(score);
+}
 
 var answered = function(right) {
   if (right) {
