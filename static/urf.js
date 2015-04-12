@@ -3,6 +3,7 @@ var questionCount = 0;
 var rightCount = 0;
 var score = 0;
 var time = 10000;
+var mode = 'ultra-rapid';
 var tickms = 10;
 var killStreak = 0;
 var killStreakStrings = ['__INDEXING__', 'CORRECT', 'DOUBLE KILL', 
@@ -10,12 +11,39 @@ var killStreakStrings = ['__INDEXING__', 'CORRECT', 'DOUBLE KILL',
                          'HEXAKILL', 'SEPTAKILL', 'OCTAKILL',
                          'NINE KILLS', 'TOO MANY KILLS', 'BUY A SOULSTEALER ALREADY'];
 var preloadedImages = [];
+var pointsPerQuestion = {
+  'ultra': 10,
+  'rapid': 20,
+  'ultra-rapid': 30
+}
 
 $(document).ready(function() {
   // Firefox is weird and keeps button state between reloads of the page.
   // This will make our buttons enabled after reload if they were disabled.
   $('.btn').prop("disabled", false);
 
+  loadQuestionsFromBackend();
+
+  $('.btn-speed').click(function(event) {
+    $('.btn-speed').removeClass('active');
+    $(event.target).addClass('active');
+    mode = $(event.target).prop('id');
+    setTimeToSelectedMode();
+    updateTimerDisplay();
+  });
+});
+
+var setTimeToSelectedMode = function() {
+  if (mode === 'ultra') {
+    time = 30000;
+  } else if (mode === 'rapid') {
+    time = 20000;
+  } else if (mode === 'ultra-rapid') {
+    time = 10000;
+  }
+}
+
+var loadQuestionsFromBackend = function() {
   $.getJSON("/questions", function(data, textStatus, jqXHR) {
     questions = data;
 
@@ -30,38 +58,49 @@ $(document).ready(function() {
     });
 
     // Set-up quiz start button.
-    $('#begin').click(function(event) {
-      startTimer();
-      displayNextQuestion();
-      disableButtons();
-    });
-
-    $('.btn-speed').click(function(event) {
-      $('.btn-speed').removeClass('active');
-      $(event.target).addClass('active');
-      if ($(event.target).prop('id') === 'ultra') {
-        time = 30000;
-      } else if ($(event.target).prop('id') === 'rapid') {
-        time = 20000;
-      } else if ($(event.target).prop('id') === 'ultra-rapid') {
-        time = 10000;
-      }
-      updateTimerDisplay();
-    });
-
+    // We do this upon completing load of questions from the backend
+    // because we want to avoid trying to start the quiz before 
+    // questions are loaded.
+    $('#begin').unbind('click').click(startQuiz);
   });
-});
+}
 
-var disableButtons = function() {
+var startQuiz = function() {
+  score = 0;
+  rightCount = 0;
+  questionCount = 0; 
+  killStreak = 0;
+  setTimeToSelectedMode();  
+  updateTimerDisplay();
+  startTimer();
+  $('#questionContainer').removeClass('hidden');
+  $('#resultsContainer').addClass('hidden');
+  displayNextQuestion();
   $('.btn').prop("disabled", true);
 }
+
 var endQuiz = function() {
-    $('#champ0').unbind("click");
-    $('#champ1').unbind("click");
-    $('#questionContainer').addClass('hidden');
-    $('#resultsContainer').removeClass('hidden');
+  $('#champ0').unbind("click");
+  $('#champ1').unbind("click");
+
+  // Hide the question area, replace it with the results area.
+  $('#questionContainer').addClass('hidden');
+  $('#resultsContainer').removeClass('hidden');
+
+  // Put the results into the results area.
+  $('#resultsFinalScore').text(score);
+  $('#resultsRatio').text(rightCount + '/' + questionCount);
+
+  // New set of questions each time.
+  loadQuestionsFromBackend();
+
+  readyToRestart()
 };
 
+var readyToRestart = function() {
+  $('#begin').text('Play Again');
+  $('.btn').prop("disabled", false);
+}
 var updateTimerDisplay = function() { 
   if (time < 10000) {
     $("#timer").text('00:0' + (time/1000).toFixed(2));
@@ -98,12 +137,12 @@ var addScore = function(points) {
 var answered = function(right) {
   if (right) {
     rightCount++;
-    addScore(10);
+    addScore(pointsPerQuestion[mode]);
     killStreak++;
     $("#instantFeedback").text(killStreakStrings[killStreak]);
   } else {
     killStreak = 0;
-    addScore(-10);
+    addScore(-pointsPerQuestion[mode]);
     $("#instantFeedback").text("WRONG");
   } 
   displayNextQuestion();
