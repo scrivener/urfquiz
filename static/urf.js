@@ -33,12 +33,12 @@ var banners = {
   'challenger': "You're URF Quiz Challenger!<br> I theorize...your success!",
 };
 var bannerImages = {
-'wood': "Amumu",
-'bronze': "Dr. Mundo",
-'silver': "Jayce", 
-'gold': "Vel'Koz",
-'diamond': "Viktor",
-'challenger': "Heimerdinger",
+  'wood': "Amumu",
+  'bronze': "Dr. Mundo",
+  'silver': "Jayce", 
+  'gold': "Vel'Koz",
+  'diamond': "Viktor",
+  'challenger': "Heimerdinger",
 }
 
 $(document).ready(function() {
@@ -145,6 +145,9 @@ var displayBanner = function() {
   var scientist = bannerImages[rank];
   $('#bannerText').html(banners[rank]);
   $('#bannerImage').html($('<img alt="A portrait of "'+scientist+'" src="'+convertChampNameToPngName(scientist)+'" />'));
+  tweetText = banners[rank].replace('<br>', '');
+  $('#twitterButton').html('<a href="https://twitter.com/intent/tweet?button_hashtag=URFQuiz" class="twitter-hashtag-button" data-url="http://urfquiz.com" data-text="%s">Tweet #URFQuiz</a>'.replace('%s', tweetText));
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 }
 
 var getRankFromScore = function(score) {
