@@ -147,7 +147,7 @@ var displayBanner = function() {
   $('#bannerImage').html($('<img alt="A portrait of "'+scientist+'" src="'+convertChampNameToPngName(scientist)+'" />'));
   tweetText = banners[rank].replace('<br>', '');
   $('#twitterButton').html('<a href="https://twitter.com/intent/tweet?button_hashtag=URFQuiz" class="twitter-hashtag-button" data-url="http://urfquiz.com" data-text="%s">Tweet #URFQuiz</a>'.replace('%s', tweetText));
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  twttr.widgets.load();
 }
 
 var getRankFromScore = function(score) {
