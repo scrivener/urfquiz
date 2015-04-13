@@ -134,8 +134,7 @@ var endQuiz = function() {
   $('#resultsContainer').removeClass('hidden');
 
   // Put the results into the results area.
-  $('#resultsFinalScore').text(score);
-  $('#resultsRatio').text(rightCount + '/' + questionCount);
+  $('#resultsFinalScore').text(score + ' (' + rightCount + '/' + (questionCount-1) + ')');
 
   displayBanner();
 
