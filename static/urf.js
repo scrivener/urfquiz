@@ -114,7 +114,6 @@ var resetQuiz = function() {
   $('#champ1Name').empty();
   $("#instantFeedback").empty();
   $("#score").text(score);
-  $("#questionText").empty();
   
   $('#begin').text('Begin');
   $('#begin').unbind('click').click(startQuiz);
