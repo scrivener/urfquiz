@@ -50,32 +50,44 @@
 
 <div id="resultsContainer" class="container hidden">
   <div id="results" class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Ultra Rapid Results</h3>
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-3">
-              <label for="resultsFinalScore">Final Score</label>
+            <div id="bannerStats" class="col-md-8">
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="resultsFinalScore">Final Score</label>
+                </div>
+                <div class="col-md-4">
+                  <span id="resultsFinalScore"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label for="resultsRatio">Right/Answered</label>
+                </div>
+                <div class="col-md-4">
+                  <span id="resultsRatio"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div id="bannerText"> </div>
+              </div>
             </div>
-            <div class="col-md-3">
-              <span id="resultsFinalScore"></span>
+            <div id="bannerImage" class="col-md-4">
+              <img src="http://ddragon.leagueoflegends.com/cdn/5.6.1/img/champion/Heimerdinger.png"/>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-3">
-              <label for="resultsRatio">Right/Answered</label>
-            </div>
-            <div class="col-md-3">
-              <span id="resultsRatio"></span>
-            </div>
-          </div>
+          <a href="https://twitter.com/intent/tweet?button_hashtag=URFQuiz" class="twitter-hashtag-button" data-url="http://urfquiz.com">Tweet #URFQuiz</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
       </div>
-      <div class="col-sm-3"></div>
+      <div class="col-sm-2"></div>
     </div>
   </div>
 </div>
@@ -102,7 +114,8 @@
         00:10.00
       </div>
       <div id="scoreWrapper">
-        Score: <span id="score"> 0 </span>
+        <label for="score" id="scoreLabel">Score</label>
+        <span id="score"> 0 </span>
       </div>
       <div id="instantFeedback"></div>
     </div>

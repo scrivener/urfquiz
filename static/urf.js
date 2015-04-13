@@ -22,6 +22,25 @@ var timePerMode = {
   'ultra-rapid': 10000
 }
 
+var twitterURL = "https://twitter.com/intent/tweet?text=%s&button_hashtag=URFQuiz"
+
+var banners = {
+  'wood': "You're URF Quiz Wood 5!<br> Failed quiz gank.",
+  'bronze': "You're URF Quiz Bronze!<br> Are you sure you're a doctor?",
+  'silver': "You're URF Quiz Silver!<br> Keep trying for a brighter tomorrow!",
+  'gold': "You're URF Quiz Gold!<br> Such fascinating Urfolution...what else can you discover?",
+  'diamond': "You're URF Quiz Diamond!<br> The glorious Urfolution.",
+  'challenger': "You're URF Quiz Challenger!<br> I theorize...your success!",
+};
+var bannerImages = {
+'wood': "Amumu",
+'bronze': "Dr. Mundo",
+'silver': "Jayce", 
+'gold': "Vel'Koz",
+'diamond': "Viktor",
+'challenger': "Heimerdinger",
+}
+
 $(document).ready(function() {
   // Firefox is weird and keeps button state between reloads of the page.
   // This will make our buttons enabled after reload if they were disabled.
@@ -110,6 +129,8 @@ var endQuiz = function() {
   $('#resultsFinalScore').text(score);
   $('#resultsRatio').text(rightCount + '/' + questionCount);
 
+  displayBanner();
+
   // New set of questions each time.
   loadQuestionsFromBackend();
 
@@ -118,6 +139,30 @@ var endQuiz = function() {
   $('#begin').text('Play Again');
   $('.btn').prop("disabled", false);
 };
+
+var displayBanner = function() {
+  var rank = getRankFromScore(score);
+  var scientist = bannerImages[rank];
+  $('#bannerText').html(banners[rank]);
+  $('#bannerImage').html($('<img alt="A portrait of "'+scientist+'" src="'+convertChampNameToPngName(scientist)+'" />'));
+}
+
+var getRankFromScore = function(score) {
+  if (score <= -100) {
+    return 'wood';
+  } else if (score <= 0) {
+    return 'bronze';
+  } else if (score <= 60) {
+    return 'silver';
+  } else if (score <= 120) {
+    return 'gold';
+  } else if (score <= 180) {
+    return 'diamond';
+  } else {
+    return 'challenger';
+  }
+}
+
 
 var updateTimerDisplay = function() { 
   if (time < 10000) {

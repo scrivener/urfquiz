@@ -54,7 +54,6 @@ html, body {
   text-align: center;
 }
 
-
 #questionContainer, #resultsContainer {
   height: 275px;
 }
@@ -82,4 +81,9 @@ html, body {
 
 .jumbotron {
   margin-top: 60px;
+}
+
+#bannerText {
+  font-size: 18pt;
+  text-align: center;
 }
