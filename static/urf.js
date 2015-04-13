@@ -193,8 +193,6 @@ var displayQuestion = function(q) {
     var c0Image = convertChampNameToPngName(q.champ0);
     var c1Image = convertChampNameToPngName(q.champ1);
 
-    $('#questionText').text(q.question);
-
     $('#champ0Image').html($('<img alt="'+q.champ0+'" src="'+c0Image+'" />'));
     $('#champ0Name').text(q.champ0);
     $('#champ0').unbind("click").click(function(e) {
