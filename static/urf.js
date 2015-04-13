@@ -22,15 +22,13 @@ var timePerMode = {
   'ultra-rapid': 10000
 }
 
-var twitterURL = "https://twitter.com/intent/tweet?text=%s&button_hashtag=URFQuiz"
-
 var banners = {
-  'wood': "You placed into URF Quiz Wood 5!<br> Failed quiz gank.",
-  'bronze': "You placed into URF Quiz Bronze!<br> Are you sure you're a doctor?",
-  'silver': "You placed into URF Quiz Silver!<br> Keep trying for a brighter tomorrow!",
-  'gold': "You placed into URF Quiz Gold!<br> Such fascinating Urfolution...what else can you discover?",
-  'diamond': "You placed into URF Quiz Diamond!<br> The glorious Urfolution.",
-  'challenger': "You placed into URF Quiz Challenger!<br> I theorize...your success!",
+  'wood': "You placed into URF Quiz <strong>Wood 5!</strong><br> Failed quiz gank.",
+  'bronze': "You placed into URF Quiz <strong>Bronze!</strong><br> Are you sure you're a doctor?",
+  'silver': "You placed into URF Quiz <strong>Silver!</strong><br> Keep trying for a brighter tomorrow!",
+  'gold': "You placed into URF Quiz <strong>Gold!</strong><br> Such fascinating Urfolution...what else can you discover?",
+  'diamond': "You placed into URF Quiz <strong>Diamond!</strong><br> The glorious Urfolution.",
+  'challenger': "You placed into URF Quiz <strong>Challenger!</strong><br> I theorize...your success!",
 };
 var firstPersonPlacements = {
   'wood': "I placed into URF Quiz Wood 5!",
@@ -147,11 +145,20 @@ var endQuiz = function() {
   $('.btn').prop("disabled", false);
 };
 
+var rankToColor = {
+  'wood': 'brown',
+  'bronze': 'tan',
+  'silver': 'silver',
+  'gold': 'gold',
+  'diamond': 'lightblue',
+  'challenger': 'lightblue'
+}
 var displayBanner = function() {
   var rank = getRankFromScore(score);
   var scientist = bannerImages[rank];
   $('#bannerText').html(banners[rank]);
   $('#bannerImage').html($('<img alt="A portrait of "'+scientist+'" src="'+convertChampNameToPngName(scientist)+'" />'));
+  $('#bannerImage img').css('border-color', rankToColor[rank]);
   tweetText = firstPersonPlacements[rank];
   $('#twitterButton').html('<a href="https://twitter.com/intent/tweet?button_hashtag=URFQuiz" class="twitter-hashtag-button" data-url="http://urfquiz.com" data-text="%s">Tweet your result!</a>'.replace('%s', tweetText));
   twttr.widgets.load();
