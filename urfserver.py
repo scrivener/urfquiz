@@ -7,7 +7,7 @@ import random
 
 from flask import Flask, Response
 app = Flask(__name__, static_folder='static') 
-app.debug = True
+#app.debug = True
 
 winrates = {}
 popularities = {}
@@ -18,10 +18,12 @@ with open('winratebychamp.csv', 'r') as statsFile:
         winrates[line['champion']] = line['winrate']
         games[line['champion']] = line['games']
 
+# These static routes are never used in deployment (nginx serves the static
+# files directly and only routes /questions to this app.
+# We leave them in for ease of debugging.
 @app.route('/')
 def mainPage():
     return app.send_static_file('index.html')
-
 @app.route('/<path>')
 def urfStatic(path):
     return app.send_static_file(path)
@@ -54,4 +56,4 @@ def generateQuestion():
            }
 
 if __name__ == '__main__':
-  app.run()
+  app.run(host='0.0.0.0', port=80)
