@@ -43,6 +43,10 @@ html, body {
   margin-right: auto;
 }
 
+#champ0 a:hover, #champ1 a:hover {
+  cursor: pointer;
+}
+
 #questionCounter {
   padding-right: 20px;
   text-align: right;

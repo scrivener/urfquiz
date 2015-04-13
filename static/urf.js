@@ -206,7 +206,6 @@ var displayNextQuestion = function() {
 var setQuestionCount = function(count) {
   questionCount = count;
   $('#questionCounter').text('Question ' + questionCount); // Display 1-index to user.
-  
 }
 
 var addScore = function(points) {
