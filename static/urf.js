@@ -25,13 +25,22 @@ var timePerMode = {
 var twitterURL = "https://twitter.com/intent/tweet?text=%s&button_hashtag=URFQuiz"
 
 var banners = {
-  'wood': "You're URF Quiz Wood 5!<br> Failed quiz gank.",
-  'bronze': "You're URF Quiz Bronze!<br> Are you sure you're a doctor?",
-  'silver': "You're URF Quiz Silver!<br> Keep trying for a brighter tomorrow!",
-  'gold': "You're URF Quiz Gold!<br> Such fascinating Urfolution...what else can you discover?",
-  'diamond': "You're URF Quiz Diamond!<br> The glorious Urfolution.",
-  'challenger': "You're URF Quiz Challenger!<br> I theorize...your success!",
+  'wood': "You placed into URF Quiz Wood 5!<br> Failed quiz gank.",
+  'bronze': "You placed into URF Quiz Bronze!<br> Are you sure you're a doctor?",
+  'silver': "You placed into URF Quiz Silver!<br> Keep trying for a brighter tomorrow!",
+  'gold': "You placed into URF Quiz Gold!<br> Such fascinating Urfolution...what else can you discover?",
+  'diamond': "You placed into URF Quiz Diamond!<br> The glorious Urfolution.",
+  'challenger': "You placed into URF Quiz Challenger!<br> I theorize...your success!",
 };
+var firstPersonPlacements = {
+  'wood': "I placed into URF Quiz Wood 5!",
+  'bronze': "I placed into URF Quiz Bronze!",
+  'silver': "I placed into URF Quiz Silver!",
+  'gold': "I placed into URF Quiz Gold!",
+  'diamond': "I placed into URF Quiz Diamond!",
+  'challenger': "I placed into URF Quiz Challenger!",
+};
+
 var bannerImages = {
   'wood': "Amumu",
   'bronze': "Dr. Mundo",
@@ -145,8 +154,8 @@ var displayBanner = function() {
   var scientist = bannerImages[rank];
   $('#bannerText').html(banners[rank]);
   $('#bannerImage').html($('<img alt="A portrait of "'+scientist+'" src="'+convertChampNameToPngName(scientist)+'" />'));
-  tweetText = banners[rank].replace('<br>', '');
-  $('#twitterButton').html('<a href="https://twitter.com/intent/tweet?button_hashtag=URFQuiz" class="twitter-hashtag-button" data-url="http://urfquiz.com" data-text="%s">Tweet #URFQuiz</a>'.replace('%s', tweetText));
+  tweetText = firstPersonPlacements[rank];
+  $('#twitterButton').html('<a href="https://twitter.com/intent/tweet?button_hashtag=URFQuiz" class="twitter-hashtag-button" data-url="http://urfquiz.com" data-text="%s">Tweet your result!</a>'.replace('%s', tweetText));
   twttr.widgets.load();
 }
 
