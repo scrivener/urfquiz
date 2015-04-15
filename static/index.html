@@ -189,141 +189,142 @@
 
   <div id="spoilers" class="page-header">
     <h1>Spoilers</h1>
+    <button id="spoilersButton" class="btn btn-warning">Click to show</button>
   </div>
 
-  <div id="spoilersContent" class="row">
+  <div id="spoilersContent" class="row hidden">
     <div class="col-xs-6">
       <table class="table table-condensed table-hover">
-<tr><th>Champion</th><th>Winrate</th><th>Popularity</th></tr>
-<tr><td>Aatrox</td><td>49.07%</td><td>968</td></tr>
-<tr><td>Ahri</td><td>51.73%</td><td>8652</td></tr>
-<tr><td>Akali</td><td>49.66%</td><td>3546</td></tr>
-<tr><td>Alistar</td><td>49.49%</td><td>6083</td></tr>
-<tr><td>Amumu</td><td>51.28%</td><td>5117</td></tr>
-<tr><td>Anivia</td><td>43.73%</td><td>1946</td></tr>
-<tr><td>Annie</td><td>50.62%</td><td>6605</td></tr>
-<tr><td>Ashe</td><td>46.64%</td><td>9932</td></tr>
-<tr><td>Azir</td><td>48.58%</td><td>4279</td></tr>
-<tr><td>Bard</td><td>42.58%</td><td>3316</td></tr>
-<tr><td>Blitzcrank</td><td>48.90%</td><td>14335</td></tr>
-<tr><td>Brand</td><td>46.07%</td><td>3249</td></tr>
-<tr><td>Braum</td><td>49.07%</td><td>756</td></tr>
-<tr><td>Caitlyn</td><td>44.65%</td><td>2170</td></tr>
-<tr><td>Cassiopeia</td><td>46.95%</td><td>1184</td></tr>
-<tr><td>Cho'Gath</td><td>46.79%</td><td>7684</td></tr>
-<tr><td>Corki</td><td>46.30%</td><td>1462</td></tr>
-<tr><td>Darius</td><td>52.93%</td><td>3164</td></tr>
-<tr><td>Diana</td><td>53.98%</td><td>3727</td></tr>
-<tr><td>Draven</td><td>50.39%</td><td>1264</td></tr>
-<tr><td>Dr. Mundo</td><td>49.25%</td><td>3441</td></tr>
-<tr><td>Elise</td><td>47.52%</td><td>707</td></tr>
-<tr><td>Evelynn</td><td>53.82%</td><td>9933</td></tr>
-<tr><td>Ezreal</td><td>50.22%</td><td>20763</td></tr>
-<tr><td>Fiddlesticks</td><td>48.08%</td><td>3388</td></tr>
-<tr><td>Fiora</td><td>54.95%</td><td>4045</td></tr>
-<tr><td>Fizz</td><td>55.10%</td><td>9519</td></tr>
-<tr><td>Galio</td><td>54.19%</td><td>2893</td></tr>
-<tr><td>Gangplank</td><td>48.83%</td><td>6577</td></tr>
-<tr><td>Garen</td><td>47.83%</td><td>2542</td></tr>
-<tr><td>Gnar</td><td>46.13%</td><td>1049</td></tr>
-<tr><td>Gragas</td><td>46.75%</td><td>2081</td></tr>
-<tr><td>Graves</td><td>49.63%</td><td>1906</td></tr>
-<tr><td>Hecarim</td><td>52.50%</td><td>9477</td></tr>
-<tr><td>Heimerdinger</td><td>48.46%</td><td>3281</td></tr>
-<tr><td>Irelia</td><td>52.17%</td><td>1629</td></tr>
-<tr><td>Janna</td><td>47.26%</td><td>1534</td></tr>
-<tr><td>Jarvan IV</td><td>50.57%</td><td>1827</td></tr>
-<tr><td>Jax</td><td>55.79%</td><td>7017</td></tr>
-<tr><td>Jayce</td><td>47.09%</td><td>5778</td></tr>
-<tr><td>Jinx</td><td>46.17%</td><td>8842</td></tr>
-<tr><td>Kalista</td><td>46.15%</td><td>741</td></tr>
-<tr><td>Karma</td><td>46.51%</td><td>6359</td></tr>
-<tr><td>Karthus</td><td>50.10%</td><td>7849</td></tr>
-<tr><td>Kassadin</td><td>48.76%</td><td>4023</td></tr>
-<tr><td>Katarina</td><td>49.56%</td><td>10303</td></tr>
-<tr><td>Kayle</td><td>51.89%</td><td>2586</td></tr>
-<tr><td>Kennen</td><td>52.99%</td><td>2334</td></tr>
-<tr><td>Kha'Zix</td><td>51.44%</td><td>2459</td></tr>
-<tr><td>KogMaw</td><td>48.28%</td><td>3140</td></tr>
-<tr><td>LeBlanc</td><td>46.05%</td><td>7726</td></tr>
-<tr><td>Lee Sin</td><td>46.35%</td><td>3717</td></tr>
-<tr><td>Leona</td><td>48.62%</td><td>4561</td></tr>
-<tr><td>Lissandra</td><td>45.98%</td><td>1807</td></tr>
-<tr><td>Lucian</td><td>47.96%</td><td>6494</td></tr>
-<tr><td>Lulu</td><td>50.65%</td><td>4442</td></tr>
-<tr><td>Lux</td><td>46.25%</td><td>11886</td></tr>
-<tr><td>Malphite</td><td>49.49%</td><td>9227</td></tr>
-<tr><td>Malzahar</td><td>49.69%</td><td>5566</td></tr>
-<tr><td>Maokai</td><td>52.06%</td><td>8163</td></tr>
-<tr><td>Master Yi</td><td>53.90%</td><td>11724</td></tr>
-<tr><td>Miss Fortune</td><td>44.47%</td><td>2089</td></tr>
-</table>
-</div>
-<div class="col-xs-6">
+        <tr><th>Champion</th><th>Winrate</th><th>Popularity</th></tr>
+        <tr><td>Aatrox</td><td>49.07%</td><td>968</td></tr>
+        <tr><td>Ahri</td><td>51.73%</td><td>8652</td></tr>
+        <tr><td>Akali</td><td>49.66%</td><td>3546</td></tr>
+        <tr><td>Alistar</td><td>49.49%</td><td>6083</td></tr>
+        <tr><td>Amumu</td><td>51.28%</td><td>5117</td></tr>
+        <tr><td>Anivia</td><td>43.73%</td><td>1946</td></tr>
+        <tr><td>Annie</td><td>50.62%</td><td>6605</td></tr>
+        <tr><td>Ashe</td><td>46.64%</td><td>9932</td></tr>
+        <tr><td>Azir</td><td>48.58%</td><td>4279</td></tr>
+        <tr><td>Bard</td><td>42.58%</td><td>3316</td></tr>
+        <tr><td>Blitzcrank</td><td>48.90%</td><td>14335</td></tr>
+        <tr><td>Brand</td><td>46.07%</td><td>3249</td></tr>
+        <tr><td>Braum</td><td>49.07%</td><td>756</td></tr>
+        <tr><td>Caitlyn</td><td>44.65%</td><td>2170</td></tr>
+        <tr><td>Cassiopeia</td><td>46.95%</td><td>1184</td></tr>
+        <tr><td>Cho'Gath</td><td>46.79%</td><td>7684</td></tr>
+        <tr><td>Corki</td><td>46.30%</td><td>1462</td></tr>
+        <tr><td>Darius</td><td>52.93%</td><td>3164</td></tr>
+        <tr><td>Diana</td><td>53.98%</td><td>3727</td></tr>
+        <tr><td>Draven</td><td>50.39%</td><td>1264</td></tr>
+        <tr><td>Dr. Mundo</td><td>49.25%</td><td>3441</td></tr>
+        <tr><td>Elise</td><td>47.52%</td><td>707</td></tr>
+        <tr><td>Evelynn</td><td>53.82%</td><td>9933</td></tr>
+        <tr><td>Ezreal</td><td>50.22%</td><td>20763</td></tr>
+        <tr><td>Fiddlesticks</td><td>48.08%</td><td>3388</td></tr>
+        <tr><td>Fiora</td><td>54.95%</td><td>4045</td></tr>
+        <tr><td>Fizz</td><td>55.10%</td><td>9519</td></tr>
+        <tr><td>Galio</td><td>54.19%</td><td>2893</td></tr>
+        <tr><td>Gangplank</td><td>48.83%</td><td>6577</td></tr>
+        <tr><td>Garen</td><td>47.83%</td><td>2542</td></tr>
+        <tr><td>Gnar</td><td>46.13%</td><td>1049</td></tr>
+        <tr><td>Gragas</td><td>46.75%</td><td>2081</td></tr>
+        <tr><td>Graves</td><td>49.63%</td><td>1906</td></tr>
+        <tr><td>Hecarim</td><td>52.50%</td><td>9477</td></tr>
+        <tr><td>Heimerdinger</td><td>48.46%</td><td>3281</td></tr>
+        <tr><td>Irelia</td><td>52.17%</td><td>1629</td></tr>
+        <tr><td>Janna</td><td>47.26%</td><td>1534</td></tr>
+        <tr><td>Jarvan IV</td><td>50.57%</td><td>1827</td></tr>
+        <tr><td>Jax</td><td>55.79%</td><td>7017</td></tr>
+        <tr><td>Jayce</td><td>47.09%</td><td>5778</td></tr>
+        <tr><td>Jinx</td><td>46.17%</td><td>8842</td></tr>
+        <tr><td>Kalista</td><td>46.15%</td><td>741</td></tr>
+        <tr><td>Karma</td><td>46.51%</td><td>6359</td></tr>
+        <tr><td>Karthus</td><td>50.10%</td><td>7849</td></tr>
+        <tr><td>Kassadin</td><td>48.76%</td><td>4023</td></tr>
+        <tr><td>Katarina</td><td>49.56%</td><td>10303</td></tr>
+        <tr><td>Kayle</td><td>51.89%</td><td>2586</td></tr>
+        <tr><td>Kennen</td><td>52.99%</td><td>2334</td></tr>
+        <tr><td>Kha'Zix</td><td>51.44%</td><td>2459</td></tr>
+        <tr><td>KogMaw</td><td>48.28%</td><td>3140</td></tr>
+        <tr><td>LeBlanc</td><td>46.05%</td><td>7726</td></tr>
+        <tr><td>Lee Sin</td><td>46.35%</td><td>3717</td></tr>
+        <tr><td>Leona</td><td>48.62%</td><td>4561</td></tr>
+        <tr><td>Lissandra</td><td>45.98%</td><td>1807</td></tr>
+        <tr><td>Lucian</td><td>47.96%</td><td>6494</td></tr>
+        <tr><td>Lulu</td><td>50.65%</td><td>4442</td></tr>
+        <tr><td>Lux</td><td>46.25%</td><td>11886</td></tr>
+        <tr><td>Malphite</td><td>49.49%</td><td>9227</td></tr>
+        <tr><td>Malzahar</td><td>49.69%</td><td>5566</td></tr>
+        <tr><td>Maokai</td><td>52.06%</td><td>8163</td></tr>
+        <tr><td>Master Yi</td><td>53.90%</td><td>11724</td></tr>
+        <tr><td>Miss Fortune</td><td>44.47%</td><td>2089</td></tr>
+      </table>
+    </div>
+    <div class="col-xs-6">
       <table class="table table-condensed table-hover">
-<tr><th>Champion</th><th>Winrate</th><th>Popularity</th></tr>
-<tr><td>Mordekaiser</td><td>50.14%</td><td>2487</td></tr>
-<tr><td>Morgana</td><td>49.78%</td><td>10525</td></tr>
-<tr><td>Nami</td><td>48.77%</td><td>3358</td></tr>
-<tr><td>Nasus</td><td>51.12%</td><td>7626</td></tr>
-<tr><td>Nautilus</td><td>47.83%</td><td>3255</td></tr>
-<tr><td>Nidalee</td><td>48.36%</td><td>14119</td></tr>
-<tr><td>Nocturne</td><td>54.94%</td><td>1374</td></tr>
-<tr><td>Nunu</td><td>47.01%</td><td>2212</td></tr>
-<tr><td>Olaf</td><td>47.42%</td><td>1244</td></tr>
-<tr><td>Orianna</td><td>50.64%</td><td>3007</td></tr>
-<tr><td>Pantheon</td><td>46.69%</td><td>3872</td></tr>
-<tr><td>Poppy</td><td>54.92%</td><td>3663</td></tr>
-<tr><td>Quinn</td><td>49.23%</td><td>2275</td></tr>
-<tr><td>Rammus</td><td>51.64%</td><td>1791</td></tr>
-<tr><td>Rek'Sai</td><td>46.26%</td><td>1500</td></tr>
-<tr><td>Renekton</td><td>48.45%</td><td>1034</td></tr>
-<tr><td>Rengar</td><td>51.49%</td><td>2707</td></tr>
-<tr><td>Riven</td><td>49.55%</td><td>6236</td></tr>
-<tr><td>Rumble</td><td>52.58%</td><td>1738</td></tr>
-<tr><td>Ryze</td><td>47.37%</td><td>4051</td></tr>
-<tr><td>Sejuani</td><td>52.44%</td><td>4115</td></tr>
-<tr><td>Shaco</td><td>52.78%</td><td>15052</td></tr>
-<tr><td>Shen</td><td>52.18%</td><td>3049</td></tr>
-<tr><td>Shyvana</td><td>51.72%</td><td>839</td></tr>
-<tr><td>Singed</td><td>48.89%</td><td>2626</td></tr>
-<tr><td>Sion</td><td>45.51%</td><td>2094</td></tr>
-<tr><td>Sivir</td><td>49.77%</td><td>4229</td></tr>
-<tr><td>Skarner</td><td>55.43%</td><td>1499</td></tr>
-<tr><td>Sona</td><td>55.80%</td><td>6035</td></tr>
-<tr><td>Soraka</td><td>49.51%</td><td>3914</td></tr>
-<tr><td>Swain</td><td>49.66%</td><td>4673</td></tr>
-<tr><td>Syndra</td><td>48.49%</td><td>3646</td></tr>
-<tr><td>Talon</td><td>52.39%</td><td>3951</td></tr>
-<tr><td>Taric</td><td>46.38%</td><td>1300</td></tr>
-<tr><td>Teemo</td><td>51.69%</td><td>16008</td></tr>
-<tr><td>Thresh</td><td>41.70%</td><td>2503</td></tr>
-<tr><td>Tristana</td><td>47.39%</td><td>1922</td></tr>
-<tr><td>Trundle</td><td>49.01%</td><td>1477</td></tr>
-<tr><td>Tryndamere</td><td>53.58%</td><td>3792</td></tr>
-<tr><td>Twisted Fate</td><td>50.32%</td><td>4918</td></tr>
-<tr><td>Twitch</td><td>47.07%</td><td>2543</td></tr>
-<tr><td>Udyr</td><td>50.27%</td><td>2164</td></tr>
-<tr><td>Urgot</td><td>50.74%</td><td>2873</td></tr>
-<tr><td>Varus</td><td>45.13%</td><td>2685</td></tr>
-<tr><td>Vayne</td><td>50.29%</td><td>2215</td></tr>
-<tr><td>Veigar</td><td>50.71%</td><td>5884</td></tr>
-<tr><td>Vel'Koz</td><td>44.20%</td><td>4108</td></tr>
-<tr><td>Vi</td><td>52.65%</td><td>3331</td></tr>
-<tr><td>Viktor</td><td>48.42%</td><td>1646</td></tr>
-<tr><td>Vladimir</td><td>50.58%</td><td>5836</td></tr>
-<tr><td>Volibear</td><td>0.498</td><td>1500</td></tr>
-<tr><td>Warwick</td><td>51.27%</td><td>2502</td></tr>
-<tr><td>Wukong</td><td>56.03%</td><td>9792</td></tr>
-<tr><td>Xerath</td><td>45.91%</td><td>2561</td></tr>
-<tr><td>Xin Zhao</td><td>53.99%</td><td>7286</td></tr>
-<tr><td>Yasuo</td><td>49.85%</td><td>2389</td></tr>
-<tr><td>Yorick</td><td>48.95%</td><td>1532</td></tr>
-<tr><td>Zac</td><td>52.51%</td><td>1013</td></tr>
-<tr><td>Zed</td><td>53.09%</td><td>12189</td></tr>
-<tr><td>Ziggs</td><td>45.15%</td><td>5884</td></tr>
-<tr><td>Zilean</td><td>45.72%</td><td>1850</td></tr>
-<tr><td>Zyra</td><td>51.23%</td><td>2879</td></tr>
+        <tr><th>Champion</th><th>Winrate</th><th>Popularity</th></tr>
+        <tr><td>Mordekaiser</td><td>50.14%</td><td>2487</td></tr>
+        <tr><td>Morgana</td><td>49.78%</td><td>10525</td></tr>
+        <tr><td>Nami</td><td>48.77%</td><td>3358</td></tr>
+        <tr><td>Nasus</td><td>51.12%</td><td>7626</td></tr>
+        <tr><td>Nautilus</td><td>47.83%</td><td>3255</td></tr>
+        <tr><td>Nidalee</td><td>48.36%</td><td>14119</td></tr>
+        <tr><td>Nocturne</td><td>54.94%</td><td>1374</td></tr>
+        <tr><td>Nunu</td><td>47.01%</td><td>2212</td></tr>
+        <tr><td>Olaf</td><td>47.42%</td><td>1244</td></tr>
+        <tr><td>Orianna</td><td>50.64%</td><td>3007</td></tr>
+        <tr><td>Pantheon</td><td>46.69%</td><td>3872</td></tr>
+        <tr><td>Poppy</td><td>54.92%</td><td>3663</td></tr>
+        <tr><td>Quinn</td><td>49.23%</td><td>2275</td></tr>
+        <tr><td>Rammus</td><td>51.64%</td><td>1791</td></tr>
+        <tr><td>Rek'Sai</td><td>46.26%</td><td>1500</td></tr>
+        <tr><td>Renekton</td><td>48.45%</td><td>1034</td></tr>
+        <tr><td>Rengar</td><td>51.49%</td><td>2707</td></tr>
+        <tr><td>Riven</td><td>49.55%</td><td>6236</td></tr>
+        <tr><td>Rumble</td><td>52.58%</td><td>1738</td></tr>
+        <tr><td>Ryze</td><td>47.37%</td><td>4051</td></tr>
+        <tr><td>Sejuani</td><td>52.44%</td><td>4115</td></tr>
+        <tr><td>Shaco</td><td>52.78%</td><td>15052</td></tr>
+        <tr><td>Shen</td><td>52.18%</td><td>3049</td></tr>
+        <tr><td>Shyvana</td><td>51.72%</td><td>839</td></tr>
+        <tr><td>Singed</td><td>48.89%</td><td>2626</td></tr>
+        <tr><td>Sion</td><td>45.51%</td><td>2094</td></tr>
+        <tr><td>Sivir</td><td>49.77%</td><td>4229</td></tr>
+        <tr><td>Skarner</td><td>55.43%</td><td>1499</td></tr>
+        <tr><td>Sona</td><td>55.80%</td><td>6035</td></tr>
+        <tr><td>Soraka</td><td>49.51%</td><td>3914</td></tr>
+        <tr><td>Swain</td><td>49.66%</td><td>4673</td></tr>
+        <tr><td>Syndra</td><td>48.49%</td><td>3646</td></tr>
+        <tr><td>Talon</td><td>52.39%</td><td>3951</td></tr>
+        <tr><td>Taric</td><td>46.38%</td><td>1300</td></tr>
+        <tr><td>Teemo</td><td>51.69%</td><td>16008</td></tr>
+        <tr><td>Thresh</td><td>41.70%</td><td>2503</td></tr>
+        <tr><td>Tristana</td><td>47.39%</td><td>1922</td></tr>
+        <tr><td>Trundle</td><td>49.01%</td><td>1477</td></tr>
+        <tr><td>Tryndamere</td><td>53.58%</td><td>3792</td></tr>
+        <tr><td>Twisted Fate</td><td>50.32%</td><td>4918</td></tr>
+        <tr><td>Twitch</td><td>47.07%</td><td>2543</td></tr>
+        <tr><td>Udyr</td><td>50.27%</td><td>2164</td></tr>
+        <tr><td>Urgot</td><td>50.74%</td><td>2873</td></tr>
+        <tr><td>Varus</td><td>45.13%</td><td>2685</td></tr>
+        <tr><td>Vayne</td><td>50.29%</td><td>2215</td></tr>
+        <tr><td>Veigar</td><td>50.71%</td><td>5884</td></tr>
+        <tr><td>Vel'Koz</td><td>44.20%</td><td>4108</td></tr>
+        <tr><td>Vi</td><td>52.65%</td><td>3331</td></tr>
+        <tr><td>Viktor</td><td>48.42%</td><td>1646</td></tr>
+        <tr><td>Vladimir</td><td>50.58%</td><td>5836</td></tr>
+        <tr><td>Volibear</td><td>0.498</td><td>1500</td></tr>
+        <tr><td>Warwick</td><td>51.27%</td><td>2502</td></tr>
+        <tr><td>Wukong</td><td>56.03%</td><td>9792</td></tr>
+        <tr><td>Xerath</td><td>45.91%</td><td>2561</td></tr>
+        <tr><td>Xin Zhao</td><td>53.99%</td><td>7286</td></tr>
+        <tr><td>Yasuo</td><td>49.85%</td><td>2389</td></tr>
+        <tr><td>Yorick</td><td>48.95%</td><td>1532</td></tr>
+        <tr><td>Zac</td><td>52.51%</td><td>1013</td></tr>
+        <tr><td>Zed</td><td>53.09%</td><td>12189</td></tr>
+        <tr><td>Ziggs</td><td>45.15%</td><td>5884</td></tr>
+        <tr><td>Zilean</td><td>45.72%</td><td>1850</td></tr>
+        <tr><td>Zyra</td><td>51.23%</td><td>2879</td></tr>
       </table>
     </div>
   </div>
@@ -333,29 +334,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="urf.js"></script>
 <script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
- 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
- 
-  return t;
+var js, fjs = d.getElementsByTagName(s)[0],
+t = window.twttr || {};
+if (d.getElementById(id)) return t;
+js = d.createElement(s);
+js.id = id;
+js.src = "https://platform.twitter.com/widgets.js";
+fjs.parentNode.insertBefore(js, fjs);
+
+t._e = [];
+t.ready = function(f) {
+t._e.push(f);
+};
+
+return t;
 }(document, "script", "twitter-wjs"));</script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-43770242-2', 'auto');
-  ga('send', 'pageview');
+ga('create', 'UA-43770242-2', 'auto');
+ga('send', 'pageview');
 </script>
 </body>
 </html>

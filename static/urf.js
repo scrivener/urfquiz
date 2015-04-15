@@ -59,6 +59,11 @@ $(document).ready(function() {
   // Set-up quiz start button.
   $('#begin').unbind('click').click(startQuiz);
 
+  $('#spoilersButton').click(function(event) {
+    $('#spoilersContent').removeClass('hidden');
+    $('#spoilersButton').prop('disabled', true);
+  });
+
   $('.btn-speed').click(function(event) {
     $('.btn-speed').removeClass('active');
     $(event.target).addClass('active');
