@@ -1,6 +1,6 @@
 = The URF quiz.
 
-This is the source for The URF Quiz (urfquiz.com), including:
+This is the source for The URF Quiz (http://urfquiz.com), including:
 
   * Data collection scripts, which download and process URF game data.
   * Backend: A Flask application server.
