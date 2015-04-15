@@ -10,8 +10,9 @@ import json
 import csv
 import sys
 import random
+import datetime
 
-from flask import Flask, Response
+from flask import Flask, Response, request
 app = Flask(__name__, static_folder='static') 
 #app.debug = True
 
@@ -24,6 +25,10 @@ with open('winratebychamp.csv', 'r') as statsFile:
     for line in r:
         winrates[line['champion']] = line['winrate']
         games[line['champion']] = line['games']
+
+
+logfile = open('serverlog.csv', 'a')
+logwriter = csv.writer(logfile)
 
 # Endpoint that returns a boatload of questions. We punt and return 500,
 # since we found in testing that many users like to just click as fast as
@@ -38,6 +43,18 @@ def questions():
                     mimetype="application/json")
 
     return resp
+
+@app.route('/stats')
+def stats():
+    score =    request.args.get('score', 'None')
+    visitid =  request.args.get('visitid', 'None')
+    right =    request.args.get('right', 'None')
+    answered = request.args.get('answered', 'None')
+    mode =     request.args.get('mode', 'None')
+    logwriter.writerow([datetime.datetime.now().isoformat(), score, visitid, right, answered, mode])
+    logfile.flush()
+    return ''
+
 
 # Generates a single question consisting of two champions, with their winrates.
 def generateQuestion():

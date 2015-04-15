@@ -47,6 +47,23 @@ var bannerImages = {
   'diamond': "Viktor",
   'challenger': "Heimerdinger",
 }
+var guid = function() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+var guid = function() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+    return v.toString(16);
+  });
+}
+
+var visitid = guid();
 
 $(document).ready(function() {
   // Firefox is weird and keeps button state between reloads of the page.
@@ -140,6 +157,12 @@ var startQuiz = function() {
 }
 
 var endQuiz = function() {
+
+  $.get( 'stats', { 'score': score, 
+                    'visitid': visitid,
+                    'mode': mode,
+                    'right': rightCount,
+                    'answered': questionCount-1 } );
   $('#champ0').unbind("click");
   $('#champ1').unbind("click");
 
