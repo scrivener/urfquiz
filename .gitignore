@@ -1,5 +1,7 @@
 *.yaml
 *.swp
+*.pyc
 dataCollection/[0-9]*
 dataCollection/downloader.log
 dataCollection/slicesDownloaded.txt
+venv/
