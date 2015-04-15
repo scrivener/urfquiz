@@ -3,7 +3,13 @@ import pandas as pd
 import ast
 import os
 import pickle
-#read json and write out a dataframe
+
+
+#go through a directory of match jsons and unpack them, putting most
+#information into a dataframe
+#when there are identical keys (ie, "ban"), further identifying data
+#(team or participant id) is prepended
+
 filelist=os.listdir("dataCollection/")
 all_dictionaries=[]
 for datafile in filelist:
@@ -51,15 +57,13 @@ for datafile in filelist:
                                 idkey=personalId+key2
                                 dfdict[idkey]=entry2
                             else:
-                                #not dealing with this for the moment, has ind data.
+                                #not unpacking the per-person laning data for this project.
                                 pass
             else:
                 print("this shouldn't happen...")
     all_dictionaries.append(dfdict)
-print "here is the first entry"
-print all_dictionaries[0]
-print "is there a second entry I hope"
-print all_dictionaries[1]
+
+
 finaldf=pd.DataFrame(all_dictionaries)
 pickle.dump(finaldf, open("finaldf.p","wb"))
 print finaldf.head()

@@ -3,18 +3,21 @@
 import pickle
 import pandas as pd
 
+#load pickled dataframe with matchdata
 mydf=pickle.load(open("finaldf.p",'rb'))
 pd.set_option('display.max_columns',200)
 
 #make winlist
 
-#100_winner
-#1100championId
+
 #apparently ids aren't just straight from 1-124, who knew
+#fetch champion ids from keyfile, which contains champion ids extracted
+#from static riot data
 with open("keys.txt","rb") as keyfile:
     keylist1=keyfile.readlines()
 keylist=[eval(item.strip()) for item in keylist1]
 print keylist
+
 #make a list of lists with [winnum, totalgames]
 winlist=[]
 i=0
@@ -47,7 +50,8 @@ for champion in keylist:
             else:
                 pass
     i+=1
-#tie winrates to champnames
+
+#tie winrates to champnames using json of championdata
 import json
 f=open("champion.json","rb")
 fread=f.read()
