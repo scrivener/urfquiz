@@ -67,8 +67,18 @@ $(document).ready(function() {
   });
 
   setTimeToSelectedMode();
+
+  convertGamesToPopularity();
 });
 
+var totalGames = 60994;
+var convertGamesToPopularity = function() {
+  $('td:last-child').each(function(index, elem) {
+    console.log($(elem).text());
+    $(elem).text((100 * parseInt($(elem).text())/totalGames).toFixed(2) + '%');
+  });
+
+}
 var setTimeToSelectedMode = function() {
   time = timePerMode[mode];
   updateTimerDisplay();
