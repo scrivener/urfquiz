@@ -1,4 +1,4 @@
-= The URF quiz.
+# The URF quiz.
 
 This is the source for The URF Quiz (http://urfquiz.com), including:
 
