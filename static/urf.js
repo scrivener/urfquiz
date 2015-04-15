@@ -73,6 +73,7 @@ $(document).ready(function() {
 
   setTimeToSelectedMode();
 
+  // In the spoilers, we have raw games. This converts them to % popularity.
   convertGamesToPopularity();
 });
 
